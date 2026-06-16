@@ -55,6 +55,7 @@ export const usePlayerStore = create<PlayerState>((set) => ({
       const value = getItemEffectValue(baseValue);
       const newInventory = [...s.player.inventory];
       newInventory.splice(idx, 1);
+      logGame('ITEM_USE', { type: item.type });
       logGame('PLAYER_HEAL', { id: s.player.id, value });
       return {
         player: {
